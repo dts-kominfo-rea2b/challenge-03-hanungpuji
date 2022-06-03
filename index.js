@@ -21,10 +21,26 @@ const dataBelanjaan = [
 ];
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
-const listBelanjaan = null;
+const listBelanjaan = (dataBelanjaan) => {
+  let dataBarang  = [];
+  let totalBelanjaan = [];
+  for (let i = 0; i < dataBelanjaan.length; i++) {
+    dataBarang.push('- '+dataBelanjaan[i]['nama']);
+    totalBelanjaan.push(dataBelanjaan[i]['harga']*dataBelanjaan[i]['kuantitas']);
+  }
+
+  return dataBarang;
+};
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
-const totalBelanjaan = null;
+const totalBelanjaan = (dataBelanjaan) => {
+  let totalBelanjaan = [];
+  for (let i = 0; i < dataBelanjaan.length; i++) {
+    totalBelanjaan.push(dataBelanjaan[i]['harga']*dataBelanjaan[i]['kuantitas']);
+  }
+  const reducer = (accumulator, curr) => accumulator + curr;
+  return totalBelanjaan.reduce(reducer);
+};
 
 // ! JANGAN DIMODIFIKASI
 const main = () => {
